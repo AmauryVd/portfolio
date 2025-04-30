@@ -292,16 +292,6 @@ nav ul li {
     padding-left: 30px;
 }
 
-.certifications-timeline::before {
-    content: '';
-    position: absolute;
-    left: 7px;
-    top: 0;
-    height: 100%;
-    width: 2px;
-    background: linear-gradient(to bottom, var(--color3), var(--color4));
-}
-
 .certification-item {
     position: relative;
     margin-bottom: 2rem;
