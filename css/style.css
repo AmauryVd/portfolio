@@ -607,3 +607,63 @@ nav ul li {
 .project-card:hover .project-image img {
     transform: scale(1.05);
 }
+
+.document-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    gap: 20px;
+    padding: 20px;
+}
+
+.document-card {
+    position: relative;
+    width: 300px;
+    height: 435px;
+    background: #0C1A1A;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.document-title {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background: #F8B55F;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 0 0 10px 10px;
+}
+
+#modal {
+     display: none;
+     opacity: 0;
+     transition: opacity 0.3s ease;
+ }
+
+#modal.show {
+    display: block;
+    opacity: 1;
+}
+
+#modal .modal-content {
+    transform: scale(0.9);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#modal.show .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.iframe-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    height: 100%;
+}

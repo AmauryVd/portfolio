@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documents</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html" class="btn-2">Home</a></li>
+            <li><a href="apropos.html" class="btn-2">A propos</a></li>
+            <li><a href="skills.html" class="btn-2">Compétences</a></li>
+            <li><a href="projects.html" class="btn-2">Projets</a></li>
+            <li><a href="certifications.html" class="btn-2">Certifications</a></li>
+            <li><a href="documents.html" class="btn-2 active">Documents</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <!-- CV -->
+    <div class="document-container">
+        <div class="document-card">
+            <div class="document-title" onclick="openModal()" style="cursor: pointer; color: blue;">CV</div>
+            <object data="images/documents/AMAURY.VIDAL.CV.pdf" type="application/pdf" width="100%" height="100%">
+            </object>
+        </div>
+    <!-- attestation2024 -->
+        <div class="document-card">
+            <object data="images/documents/attestation2024.pdf" type="application/pdf" width="100%" height="100%">
+            </object>
+            <div class="document-title" onclick="openModal()" style="cursor: pointer; color: blue;">Attestation 2024</div>
+        </div>
+    <!-- attestation2025 -->
+        <div class="document-card">
+            <object data="images/documents/attestation2025.jpg" type="image/jpeg" width="100%" height="100%">
+            </object>
+            <div class="document-title" onclick="openModal()" style="cursor: pointer; color: blue;">
+                Attestation 2025
+            </div>
+        </div>
+    </div>
+
+<footer>
+    <p>&copy; <span id="year"></span> Portfolio. All rights reserved. Amaury Vidal 2025.</p>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+    function openModal() {
+        document.getElementById('modal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('modal').style.display = 'none';
+    }
+</script>
+<div id="modal" style="display: none; position: fixed; top: 0; left: 0;
+width: 100vw; height: 100vh; background: rgba(0,0,0,0.8); z-index: 1000;">
+    <div style="width: 90%; height: 90%; margin: 5% auto; background: white; position: relative;">
+        <iframe src="images/documents/attestation2025.jpg" style="width: 100%; height: 100%; border: none;"></iframe>
+        <button onclick="closeModal()" style="position: absolute; top: 10px; right: 10px;">Fermer</button>
+    </div>
+</div>
+</body>
+</html>
