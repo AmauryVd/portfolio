@@ -1,7 +1,5 @@
-// Set current year in footer
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Add active class to current page link
 const currentPage = location.pathname.split('/').pop();
 document.querySelectorAll('nav a').forEach(link => {
     if (link.getAttribute('href') === currentPage) {
@@ -9,7 +7,6 @@ document.querySelectorAll('nav a').forEach(link => {
     }
 });
 
-// Load RSS feed content (for index page)
 if (document.getElementById('rss-feed-content')) {
     document.addEventListener('DOMContentLoaded', function() {
         fetch('rss.php')
@@ -38,7 +35,6 @@ if (document.getElementById('rss-feed-content')) {
     });
 }
 
-// Certificate modal functionality
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('certificateModal');
     if (modal) {
@@ -46,26 +42,21 @@ document.addEventListener('DOMContentLoaded', function() {
         const captionText = document.getElementById('caption');
         const closeModal = document.querySelector('.close-modal');
 
-        // Get all certificate buttons and attach click handlers
         document.querySelectorAll('.view-certificate').forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
 
-                // Set the image source and title
                 modalImg.src = this.dataset.certificateUrl;
                 modalImg.alt = this.dataset.certificateTitle;
                 captionText.innerHTML = this.dataset.certificateTitle;
 
-                // Show the modal with transition
                 modal.style.display = "block";
                 document.body.classList.add('no-scroll');
 
-                // Trigger the transition after a small delay
                 setTimeout(() => {
                     modal.classList.add('show');
                 }, 10);
 
-                // Add error handling for image loading
                 modalImg.onerror = function() {
                     captionText.innerHTML = "Certificate image not found: " + this.alt;
                     modalImg.style.display = "none";
@@ -73,16 +64,14 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Close modal when X is clicked
         closeModal.addEventListener('click', function() {
             modal.classList.remove('show');
             setTimeout(() => {
                 modal.style.display = "none";
                 document.body.classList.remove('no-scroll');
-            }, 300); // Match this with the CSS transition duration
+            }, 300);
         });
 
-        // Close modal when clicking outside image
         modal.addEventListener('click', function(e) {
             if (e.target === modal) {
                 modal.classList.remove('show');
@@ -95,23 +84,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Smooth Page Transitions
 document.addEventListener('DOMContentLoaded', function() {
-    // Create transition element
     const transition = document.createElement('div');
     transition.className = 'page-transition';
     document.body.appendChild(transition);
 
-    // Add loaded class to body after a short delay
     setTimeout(() => {
         document.body.classList.add('page-loaded');
     }, 100);
 
-    // Handle all internal links
     document.querySelectorAll('a[href^="/"], a[href^="."]').forEach(link => {
         const href = link.getAttribute('href');
 
-        // Skip if it's an anchor link, external link, or special button
         if (href.startsWith('#') ||
             href.startsWith('http') ||
             link.classList.contains('no-transition') ||
@@ -120,30 +104,25 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         link.addEventListener('click', function(e) {
-            // Skip if special key pressed (ctrl, shift, etc)
             if (e.ctrlKey || e.shiftKey || e.metaKey || e.altKey) return;
 
             e.preventDefault();
 
-            // Start transition
             transition.classList.add('active');
             document.body.classList.add('no-scroll');
 
-            // Wait for transition to complete before navigating
             setTimeout(() => {
                 window.location.href = href;
-            }, 600); // Match this with CSS transition duration
+            }, 600);
         });
     });
 
-    // When new page loads, reverse the transition
     window.addEventListener('load', function() {
         transition.classList.remove('active');
         document.body.classList.remove('no-scroll');
     });
 });
 
-// Animate elements sequentially
 function animateElements() {
     const elements = document.querySelectorAll('[data-load]');
     elements.forEach((el, index) => {
@@ -153,3 +132,20 @@ function animateElements() {
         }, 100 + (index * 50));
     });
 }
+
+const cursorText = document.getElementById("cursorText");
+
+// Fonction pour déplacer le texte avec le curseur
+document.addEventListener("mousemove", (event) => {
+    // Position du curseur
+    const mouseX = event.clientX;
+    const mouseY = event.clientY;
+
+    // Décalage du texte par rapport au curseur
+    const offsetX = 20; // Décalage horizontal
+    const offsetY = -90; // Décalage vertical
+
+    // Appliquer la position absolue du texte en utilisant left et top
+    cursorText.style.left = (mouseX + offsetX) + "px";
+    cursorText.style.top = (mouseY + offsetY) + "px";
+});

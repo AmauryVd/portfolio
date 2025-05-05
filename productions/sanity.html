@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outil Sanity Check</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../images/favicon.png" type="image/png">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="../index.html" class="btn-2 ">Home</a></li>
+            <li><a href="../apropos.html" class="btn-2">A propos</a></li>
+            <li><a href="../skills.html" class="btn-2">Compétences</a></li>
+            <li><a href="../projects.html" class="btn-2">Projets</a></li>
+            <li><a href="../certifications.html" class="btn-2">Certifications</a></li>
+            <li><a href="../documents.html" class="btn-2">Documents</a></li>
+            <li><a href="../veille.html" class="btn-2">Veille</a></li>
+            <li><a href="#" id="prod-link" class="btn-2">Production</a></li>
+        </ul>
+    </nav>
+</header>
+<main class="fade-bg main-content">
+    <a href="../projects.html" class="btn-2 small"><span>← Retour aux projets</span></a>
+</main>
+<footer>
+    <p>&copy; <span id="year"></span> Portfolio. All rights reserved. Amaury Vidal 2025.</p>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+    const prodLink = document.getElementById("prod-link");
+    const filename = window.location.pathname.split("/").pop().split(".")[0];
+
+    const titles = {
+        album: "Album",
+        gestion: "App Gestion",
+        kanban: "App Kanban",
+        sanity: "Sanity Check",
+        vetex: "Vertex",
+    };
+
+    if (titles[filename]) {
+        prodLink.textContent = titles[filename];
+        prodLink.href = filename + ".html";
+        prodLink.classList.add("active");
+    } else {
+        prodLink.style.display = "none";
+    }
+</script>
+</body>
+</html>

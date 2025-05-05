@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App gestion de budget</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../images/favicon.png" type="image/png">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="../index.html" class="btn-2 ">Home</a></li>
+            <li><a href="../apropos.html" class="btn-2">A propos</a></li>
+            <li><a href="../skills.html" class="btn-2">Compétences</a></li>
+            <li><a href="../projects.html" class="btn-2">Projets</a></li>
+            <li><a href="../certifications.html" class="btn-2">Certifications</a></li>
+            <li><a href="../documents.html" class="btn-2">Documents</a></li>
+            <li><a href="../veille.html" class="btn-2">Veille</a></li>
+            <li><a href="#" id="prod-link" class="btn-2">Production</a></li>
+        </ul>
+    </nav>
+</header>
+<main class="fade-bg main-content">
+    <a href="../projects.html" class="btn-2 small"><span>← Retour aux projets</span></a>
+
+    <div class="content-block">
+        <div class="text-block">
+            <h2>App Gestion de budget</h2>
+            <p>Projet de réalisation d'une application de gestion de budget bancaire.</p>
+            <h3>Fonctionnalités</h3>
+            <ul>
+                <li>Gestion de budget, crédit et débit par un utilisateur</li>
+                <li>Gestion d'une base de données de budget bancaire.</li>
+                <li>Incorporation de tables ayant des Tags, Crédit, Débit...</li>
+            </ul>
+            <h3>Langages/Framework utilisés : </h3>
+            <ul>
+                <li>Php</li>
+                <li>MySql</li>
+                <p></p>
+                <li>Symphony</li>
+            </ul>
+        </div>
+
+        <div class="image-block">
+            <h3>Visualisation de l'app de gestion(visuel non contractuel. Projet en cours)</h3>
+            <img src="../images/imgprod/appgestion.png" alt="Description" style="width:1000px; height:800px; object-fit:contain; max-width: 100%; max-height: 100%;">
+        </div>
+    </div>
+</main>
+<footer>
+    <p>&copy; <span id="year"></span> Portfolio. All rights reserved. Amaury Vidal 2025.</p>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+    const prodLink = document.getElementById("prod-link");
+    const filename = window.location.pathname.split("/").pop().split(".")[0];
+
+    const titles = {
+        album: "Album",
+        gestion: "App Gestion",
+        kanban: "App Kanban",
+        sanity: "Sanity Check",
+        vetex: "Vertex",
+    };
+
+    if (titles[filename]) {
+        prodLink.textContent = titles[filename];
+        prodLink.href = filename + ".html";
+        prodLink.classList.add("active");
+    } else {
+        prodLink.style.display = "none";
+    }
+</script>
+</body>
+</html>

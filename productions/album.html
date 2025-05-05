@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../images/favicon.png" type="image/png">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="../index.html" class="btn-2 ">Home</a></li>
+            <li><a href="../apropos.html" class="btn-2">A propos</a></li>
+            <li><a href="../skills.html" class="btn-2">Compétences</a></li>
+            <li><a href="../projects.html" class="btn-2">Projets</a></li>
+            <li><a href="../certifications.html" class="btn-2">Certifications</a></li>
+            <li><a href="../documents.html" class="btn-2">Documents</a></li>
+            <li><a href="../veille.html" class="btn-2">Veille</a></li>
+            <li><a href="#" id="prod-link" class="btn-2">Production</a></li>
+        </ul>
+    </nav>
+</header>
+<main class="fade-bg main-content">
+    <a href="../projects.html" class="btn-2"><span>← Retour aux projets</span></a>
+
+    <div class="content-block">
+        <div class="text-block">
+            <h2>Album Photo</h2>
+            <p>Projet de réalisation d'un album photo avec plusieurs fonctionnalités.</p>
+            <h3>Fonctionnalités</h3>
+            <ul>
+                <li>Fonction pour ajouter et supprimer des albums.</li>
+                <li>Fonction d'ajout et de suppression de photos dans un/des albums.</li>
+                <li>Modifier l'emplacement et le nom d'un album ou d'une photo</li>
+            </ul>
+            <h3>Langages utilisés : </h3>
+            <ul>
+                <li>Html</li>
+                <li>CSS</li>
+                <li>Php</li>
+                <li>MySql</li>
+            </ul>
+        </div>
+
+        <div class="image-block">
+            <h3>Visualisation de l'album</h3>
+            <img src="../images/imgprod/albumphoto.PNG" alt="Description" style="width:1000px; height:800px; object-fit:contain; max-width: 100%; max-height: 100%;">
+        </div>
+    </div>
+</main>
+<footer>
+    <p>&copy; <span id="year"></span> Portfolio. All rights reserved. Amaury Vidal 2025.</p>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+    const prodLink = document.getElementById("prod-link");
+    const filename = window.location.pathname.split("/").pop().split(".")[0];
+
+    const titles = {
+        album: "Album",
+        gestion: "App Gestion",
+        kanban: "App Kanban",
+        sanity: "Sanity Check",
+        vetex: "Vertex",
+    };
+
+    if (titles[filename]) {
+        prodLink.textContent = titles[filename];
+        prodLink.href = filename + ".html";
+        prodLink.classList.add("active");
+    } else {
+        prodLink.style.display = "none";
+    }
+</script>
+</body>
+</html>

@@ -3,35 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Veille Informatique</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="alternate" type="application/rss+xml" title="My Portfolio Updates">
     <link rel="icon" href="images/favicon.png" type="image/png">
 </head>
 <body>
 <header>
     <nav>
         <ul>
-            <li><a href="index.html" class="btn-2 active">Home</a></li>
+            <li><a href="index.html" class="btn-2">Home</a></li>
             <li><a href="apropos.html" class="btn-2">A propos</a></li>
             <li><a href="skills.html" class="btn-2">Compétences</a></li>
             <li><a href="projects.html" class="btn-2">Projets</a></li>
             <li><a href="certifications.html" class="btn-2">Certifications</a></li>
             <li><a href="documents.html" class="btn-2">Documents</a></li>
-            <li><a href="veille.html" class="btn-2">Veille</a></li>
+            <li><a href="veille.html" class="btn-2 active">Veille</a></li>
         </ul>
     </nav>
 </header>
-
 <main class="fade-bg main-content">
-    <section class="intro">
-        <h1 style="text-align: center" class="title">Portfolio</h1>
-        <p style="text-align: center" class="subtitle">Développeur web créatif et passionné</p>
-    </section>
-    <div id="cursorText">Time to go In</div>
-
+    <div class="iframe-container">
+        <iframe src="https://feed.mikle.com/widget/v2/172761/?preloader-text=Loading&"
+                height="494px" width="50%" class="fw-iframe" scrolling="no" frameborder="0">
+        </iframe>
+    </div>
 </main>
-
 <footer>
     <p>&copy; <span id="year"></span> Portfolio. All rights reserved. Amaury Vidal 2025.</p>
 </footer>
