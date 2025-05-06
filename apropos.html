@@ -23,11 +23,111 @@
 </header>
 <main class="fade-bg main-content">
 
+    <div class="apropos-buttons" style="display: flex; justify-content: center; gap: 20px; margin-top: 30px;">
+        <a style="padding: 15px 30px; background-color: #333; color: #e8c999; text-decoration: none;
+            border-radius: 8px; font-size: 18px; font-weight: bold; transition: background-color 0.3s;"
+           onmouseover="this.style.backgroundColor='#555555';"
+           onmouseout="this.style.backgroundColor='#333333';"
+           href="https://github.com/AmauryVd" target="_blank" class="skill-tag">GitHub</a>
+        <button onclick="toggleInfoWidget()"
+                style="padding: 15px 30px; background-color: #333; color: #e8c999; border: none;
+            border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer;"
+                onmouseover="this.style.backgroundColor='#555555';"
+                onmouseout="this.style.backgroundColor='#333';">
+            Infos
+        </button>
+
+    <button onclick="toggleHobbies()"
+            style="padding: 15px 30px; background-color: #333; color: #e8c999; border: none;
+            border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer;"
+            onmouseover="this.style.backgroundColor='#555555';"
+            onmouseout="this.style.backgroundColor='#333';">
+        Autres
+    </button>
+    </div>
+
+    <div id="infoWidget" style="
+    display: none;
+    margin: 20px auto;
+    padding: 20px;
+    width: 300px;
+    background-color: #f9f9f9;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 16px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;">
+        <p><strong>Email :</strong> amaury.vidal@email.com</p>
+        <p><strong>Téléphone :</strong> 06 12 34 56 78</p>
+        <p><strong>Adresse :</strong> 42 rue de Lebisey, Caen</p>
+    </div>
+
+    <div id="hobbies-section" style="display: none; margin-top: 30px; text-align: center;">
+        <div class="widget" style="margin-bottom: 20px; display: inline-block; background-color: var(--color4);
+                                  border-radius: 8px; padding: 20px; box-shadow: 0 4px 6px rgb(232,201,153); opacity: 0;">
+            <h3 style="color: var(--color1);">Voyage</h3>
+            <p style="color: #e8c999">Décrouvrir de nouvelles cultures et de nouveau horizons.</p>
+        </div>
+        <div class="widget" style="margin-bottom: 20px; display: inline-block; background-color: var(--color4);
+                                  border-radius: 8px; padding: 20px; box-shadow: 0 4px 6px rgb(232,201,153); opacity: 0;">
+            <h3 style="color: var(--color1);">Manga</h3>
+            <p style="color: #e8c999">Passion pour les mangas et l'animation.</p>
+        </div>
+        <div class="widget" style="margin-bottom: 20px; display: inline-block; background-color: var(--color4);
+                                  border-radius: 8px; padding: 20px; box-shadow: 0 4px 6px rgb(232,201,153); opacity: 0;">
+            <h3 style="color: var(--color1);">Sport</h3>
+            <p style="color: #e8c999">J'aime pratiquer différents sports, notamment le football et la natation.</p>
+        </div>
+        <div class="widget" style="margin-bottom: 20px; display: inline-block; background-color: var(--color4);
+                                  border-radius: 8px; padding: 20px; box-shadow: 0 4px 6px rgb(232,201,153); opacity: 0;">
+            <h3 style="color: var(--color1);">Histoire</h3>
+            <p style="color: #e8c999">Grand intérêt pour l'histoire, notamment l'histoire médiévale, la guerre froide
+                et les mythologies : gréco-romaine, nordique, japonaise et chinoise.</p>
+        </div>
+        <div class="widget" style="margin-bottom: 20px; display: inline-block; background-color: var(--color4);
+                                  border-radius: 8px; padding: 20px; box-shadow: 0 4px 6px rgb(232,201,153); opacity: 0;">
+            <h3 style="color: var(--color1);">Jeux Vidéos</h3>
+            <p style="color: #e8c999">Passionné par les jeux vidéo, FPS, Soulslike et autres.</p>
+        </div>
+        <div class="widget" style="margin-bottom: 20px; display: inline-block; background-color: var(--color4);
+                                  border-radius: 8px; padding: 20px; box-shadow: 0 4px 6px rgb(232,201,153); opacity: 0;">
+            <h3 style="color: var(--color1);">Programmation</h3>
+            <p style="color: #e8c999">Intérêt pour la programmation informatique, en particulier pour le développement web.</p>
+        </div>
+        <div class="widget" style="margin-bottom: 20px; display: inline-block; background-color: var(--color4);
+                                  border-radius: 8px; padding: 20px; box-shadow: 0 4px 6px rgb(232,201,153); opacity: 0;">
+            <h3 style="color: var(--color1);">Cinématographie</h3>
+            <p style="color: #e8c999">Amateur de cinéma, particulièrement des films d'animation et des films de Q.Tarantino.</p>
+        </div>
+    </div>
+
 </main>
 <footer>
     <p>&copy; <span id="year"></span> Portfolio. All rights reserved. Amaury Vidal 2025.</p>
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+    function toggleInfoWidget() {
+        const widget = document.getElementById("infoWidget");
+        widget.style.display = widget.style.display === "none" ? "block" : "none";
+    }
+
+    function toggleHobbies() {
+        const hobbiesSection = document.getElementById('hobbies-section');
+        if (hobbiesSection.style.display === "none") {
+            hobbiesSection.style.display = "block";
+            const widgets = document.querySelectorAll('.widget');
+            widgets.forEach((widget, index) => {
+                setTimeout(() => {
+                    widget.style.animation = "slideUp 1s ease-out forwards";
+                }, index * 300);
+            });
+        } else {
+            hobbiesSection.style.display = "none";
+        }
+    }
+</script>
 </body>
 </html>
